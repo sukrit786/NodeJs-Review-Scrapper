@@ -33,7 +33,13 @@ async function getData(url) {
       return comments;
     };
     logg.log("SCRAPPER SAYS HELLO");
-    const browser = await puppeteer.launch({ headless: true });
+    // const browser = await puppeteer.launch({ headless: true });
+    const browser = await puppeteer.launch({
+        'args' : [
+          '--no-sandbox',
+          '--disable-setuid-sandbox'
+        ]
+    });
     const page = await browser.newPage();
     // wait untill tells the browser that the navigation is finished when thr are atmost 2 network connection over half a second
     await page.goto(url, {
