@@ -29,6 +29,6 @@ app.post('/url', async(req, res) => {
     // logg.log("MAIN_PAGE",res_data)
 })
 
-app.listen(config.get('port'), () => {
+app.listen(process.env.PORT||config.get('port'), () => {
   console.log(`Example app listening at http://localhost:${config.get('port')}`)
 })
