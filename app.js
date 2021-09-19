@@ -13,6 +13,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 logg.log("SERVER FILE SAYS","happy bday santa")
 
+app.get('/',(req,res)=>{
+    res.send("this i loading")
+})
+
 app.post('/url', async(req, res) => {
     // https://www.tigerdirect.com/applications/SearchTools/item-details.asp?EdpNo=640254&CatId=3839 3_reviews
     // https://www.tigerdirect.com/applications/SearchTools/item-details.asp?EdpNo=6659197&CatId=5469 41_reviews
