@@ -1,0 +1,11 @@
+{
+  "port": 4000,
+  "dataBaseSettings": {
+  },
+  "s3Config": {
+  },
+  "emailCreds": {
+  },
+  "googleCreds": {
+  }
+}
