@@ -24,11 +24,12 @@ app.post('/url', async(req, res) => {
         res.send({code:res.statusCode,msg:res_data})
     } catch(err) {
         res.statusCode = 400
+        console.log(err)
         res.send({code:res.statusCode,msg:"Invalid Url"})
     }
     // logg.log("MAIN_PAGE",res_data)
 })
 
 app.listen(process.env.PORT||config.get('port'), () => {
-  console.log(`Example app listening at http://localhost:${config.get('port')}`)
+  console.log(`Example app listening at http://localhost:${process.env.PORT}`)
 })
