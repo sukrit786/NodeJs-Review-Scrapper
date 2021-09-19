@@ -1,3 +1,2 @@
-2021/09/20-03:07:55.990 6b03 Reusing MANIFEST /Users/sukritanand/assignment/cache/Default/Session Storage/MANIFEST-000001
-2021/09/20-03:07:55.990 6b03 Recovering log #3
-2021/09/20-03:07:55.991 6b03 Reusing old log /Users/sukritanand/assignment/cache/Default/Session Storage/000003.log 
+2021/09/20-03:20:25.522 2971b Creating DB /Users/sukritanand/assignment/cache/Default/Session Storage since it was missing.
+2021/09/20-03:20:25.597 2971b Reusing MANIFEST /Users/sukritanand/assignment/cache/Default/Session Storage/MANIFEST-000001

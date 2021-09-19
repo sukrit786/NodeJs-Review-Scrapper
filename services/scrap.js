@@ -75,10 +75,15 @@ async function getData(url) {
         '--use-mock-keychain',
       ];
     // const browser = await puppeteer.launch({ headless: true });
+    // cache fills up heroku creates issues
+    // const browser = await puppeteer.launch({
+    //     headless: true,
+    //     args : minimal_args,
+    //     userDataDir: './cache'
+    // });
     const browser = await puppeteer.launch({
         headless: true,
         args : minimal_args,
-        userDataDir: './cache'
     });
     const page = await browser.newPage();
     await page.setRequestInterception(true)
