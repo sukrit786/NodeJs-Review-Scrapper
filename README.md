@@ -1,5 +1,7 @@
 # NodeJs-Review-Scrapper
-## Post to https://url/url with body as 
+## Post to https://scrap2review.herokuapp.com/url with body as 
   {
-    url:"https://www.tigerdirect.com/applications/<params>"
+    url:"https://www.tigerdirect.com/applications/SearchTools/item-details.asp?EdpNo=640254&CatId=3839"
   }
+  
+#### used heroku basic dyno for deploy so its a lil slower
