@@ -19,14 +19,12 @@ app.post('/url', async(req, res) => {
     // https://www.tigerdirect.com/applications/SearchTools/item-details.asp?EdpNo=54563&CatId=3839 no_reviews
     // https://www.tigerdirect.com/applications/SearchTools/item-details.asp?EdpNo=995645234&CatId=3839 invalid_url
     try {
-        console.log(req.body.url);
         let res_data = await scrapi.getData(req.body.url)
         res.statusCode = 200
         res.send({code:res.statusCode,msg:res_data})
     } catch(err) {
         res.statusCode = 400
         res.send({code:res.statusCode,msg:"Invalid Url"})
-        console.error("*************************************",err)
     }
     // logg.log("MAIN_PAGE",res_data)
 })
