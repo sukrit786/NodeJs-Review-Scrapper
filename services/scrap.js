@@ -33,23 +33,66 @@ async function getData(url) {
       return comments;
     };
     logg.log("SCRAPPER SAYS HELLO");
+    const blocked_domains = [
+        'googlesyndication.com',
+        'adservice.google.com',
+    ];
+    const minimal_args = [
+        '--autoplay-policy=user-gesture-required',
+        '--disable-background-networking',
+        '--disable-background-timer-throttling',
+        '--disable-backgrounding-occluded-windows',
+        '--disable-breakpad',
+        '--disable-client-side-phishing-detection',
+        '--disable-component-update',
+        '--disable-default-apps',
+        '--disable-dev-shm-usage',
+        '--disable-domain-reliability',
+        '--disable-extensions',
+        '--disable-features=AudioServiceOutOfProcess',
+        '--disable-hang-monitor',
+        '--disable-ipc-flooding-protection',
+        '--disable-notifications',
+        '--disable-offer-store-unmasked-wallet-cards',
+        '--disable-popup-blocking',
+        '--disable-print-preview',
+        '--disable-prompt-on-repost',
+        '--disable-renderer-backgrounding',
+        '--disable-setuid-sandbox',
+        '--disable-speech-api',
+        '--disable-sync',
+        '--hide-scrollbars',
+        '--ignore-gpu-blacklist',
+        '--metrics-recording-only',
+        '--mute-audio',
+        '--no-default-browser-check',
+        '--no-first-run',
+        '--no-pings',
+        '--no-sandbox',
+        '--no-zygote',
+        '--password-store=basic',
+        '--use-gl=swiftshader',
+        '--use-mock-keychain',
+      ];
     // const browser = await puppeteer.launch({ headless: true });
     const browser = await puppeteer.launch({
-        'args' : [
-          '--no-sandbox',
-          '--disable-setuid-sandbox'
-        ]
+        headless: true,
+        args : minimal_args,
+        userDataDir: './cache'
     });
     const page = await browser.newPage();
     await page.setRequestInterception(true)
-    page.on('request', (request) => {
-      if (request.resourceType() === 'image') request.abort()
-      else request.continue()
-    })
-    // wait untill tells the browser that the navigation is finished when thr are atmost 2 network connection over half a second
-    await page.goto(url, {
-      waitUntil: "networkidle2",
+    await page.setRequestInterception(true);
+    page.on('request', request => {
+      const url = request.url()
+      if (blocked_domains.some(domain => url.includes(domain))) {
+        request.abort();
+      } else {
+        request.continue();
+      }
     });
+    // wait untill tells the browser that the navigation is finished when thr are atmost 2 network connection over half a second
+    await page.goto(url);
 
     let data1 = await page.evaluate(() => {
       if(!document.querySelector(".pdp-info>h1")) {
