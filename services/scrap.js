@@ -41,6 +41,11 @@ async function getData(url) {
         ]
     });
     const page = await browser.newPage();
+    await page.setRequestInterception(true)
+    page.on('request', (request) => {
+      if (request.resourceType() === 'image') request.abort()
+      else request.continue()
+    })
     // wait untill tells the browser that the navigation is finished when thr are atmost 2 network connection over half a second
     await page.goto(url, {
       waitUntil: "networkidle2",
