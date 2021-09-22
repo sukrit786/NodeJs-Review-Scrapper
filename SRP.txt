@@ -1,0 +1,9 @@
+SRP -- Single Responsibility Principle
+
+The Single Responsibility Principle is the key software engineering principle which determines how we should modularise 
+code in object oriented programming . It basically says that for class created it should have a single responsibility. 
+
+It strongly goes against the fact supposedly if a class has 20 parameters in the constructor, and also that class only does one thing, 
+how does it have 20 dependencies? That's like going on a fishing trip and bringing along a fishing pole, tackle box, quilting supplies, 
+bowling ball, nunchucks, flame thrower, etc.... If you need all that to go fishing, you're not just going fishing. 
+(Really liked this ex. from Stack Overflow)
