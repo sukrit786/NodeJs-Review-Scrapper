@@ -13,6 +13,7 @@ class ScrapContent {
       const blocked_domains = ["googlesyndication.com", "adservice.google.com"];
       const browser = await puppeteer.launch({
         headless: true,
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
       });
       const page = await browser.newPage();
       await page.setRequestInterception(true);
@@ -84,6 +85,7 @@ class ScrapContent {
     try {
       const browser = await puppeteer.launch({
         headless: true,
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
       });
       const page = await browser.newPage();
   
