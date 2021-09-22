@@ -13,6 +13,7 @@ const constants = require("./properties/constants");
 // https://www.tigerdirect.com/applications/SearchTools/item-details.asp?EdpNo=6659197&CatId=5469 41_reviews
 // https://www.tigerdirect.com/applications/SearchTools/item-details.asp?EdpNo=54563&CatId=3839 no_reviews
 // https://www.tigerdirect.com/applications/SearchTools/item-details.asp?EdpNo=995645234&CatId=3839 invalid_url
+// the code formatting is based of my very limited knowledge of SRP architecture
 
 class Server {
 	constructor(port, app) {
